@@ -6,7 +6,8 @@
     "dev": "next dev -p ${PORT:-3332}",
     "build": "next build",
     "start": "next start -p ${PORT:-3332}",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@next/font": "13.1.1",
@@ -25,6 +26,12 @@
     "urql": "^3.0.3"
   },
   "devDependencies": {
-    "graphql": "^16.6.0"
+    "@graphql-codegen/cli": "2.16.4",
+    "@graphql-codegen/client-preset": "1.2.6",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-codegen/typescript-urql": "^3.7.3",
+    "graphql": "^16.6.0",
+    "ts-node": "^10.9.1"
   }
 }

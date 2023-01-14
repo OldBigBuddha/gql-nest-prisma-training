@@ -5,6 +5,9 @@ import { gql } from 'graphql-tag';
 
 import { urqlClient } from '../libs/gql-requests';
 
+import { PostIndexPageDocument } from '../graphql/generated.graphql';
+
+
 import styles from '../styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -42,16 +45,7 @@ const Home: NextPage<Props> = (props) => {
 export const getStaticProps: GetServerSideProps<Props> = async () => {
   try {
     const client = await urqlClient();
-
-    const postsQuery = gql`
-      query {
-        posts {
-          id
-          title
-        }
-      }
-    `;
-    const result = await client.query(postsQuery, {}).toPromise();
+    const result = await client.query(PostIndexPageDocument, {}).toPromise();
 
     return {
       props: {
