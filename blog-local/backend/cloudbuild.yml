@@ -54,7 +54,7 @@ steps:
       - --set-env-vars=GCP_PROJECT=$PROJECT_ID
       - --update-secrets=DATABASE_URL=BLOG_TRAINING_DATABASE_URL:latest
     dir: "blog-local/backend"
-    waitfor: ["apply-migrations"]
+    waitFor: ["apply-migrations"]
 timeout: 2000s
 substitutions:
   _REGION: by-terraform
